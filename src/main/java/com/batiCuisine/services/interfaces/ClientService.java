@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ClientService {
-    public List<Client> getAllClients() throws SQLException;
-    public Optional<Client> getClientById(String id) throws SQLException;
+    public List<ClientDto> getAllClients();
+    public Optional<ClientDto> getClientById(String id);
     public ClientDto addClient(ClientDto clientDto);
-    public void removeClient(String id) throws SQLException;
+    public void removeClient(String id);
 }

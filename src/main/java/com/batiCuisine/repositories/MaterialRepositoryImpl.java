@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -22,7 +23,7 @@ public class MaterialRepositoryImpl implements MaterialRepository {
     @Override
     public Material addMaterial(Material material) throws SQLException {
         String query = "INSERT INTO Materials (name, type, vatRate, totalPrice, projectId, unitCost, quantity, transportCost, qualityCoefficient) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement ps = connection.prepareStatement(query)) {
+        try (PreparedStatement ps = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, material.getName());
             ps.setString(2, material.getType().toString());
             ps.setDouble(3, material.getVatRate());
@@ -40,11 +41,12 @@ public class MaterialRepositoryImpl implements MaterialRepository {
 
             try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    UUID id = (UUID) generatedKeys.getObject(1);
+                    UUID id = UUID.fromString(generatedKeys.getString(1));
 
-                    return new Material(id, material.getName(), material.getType(), material.getVatRate(), material.getTotalPrice(), material.getProjectId(), material.getUnitCost(), material.getQuantity(), material.getTransportCost(), material.getQualityCoefficient());
+                    return new Material(id, material.getName(), material.getType(), material.getVatRate(), material.getTotalPrice(), material.getProjectId(),
+                            material.getUnitCost(), material.getQuantity(), material.getTransportCost(), material.getQualityCoefficient());
                 }else {
-                    return null;
+                    throw new SQLException("Failed to retrieve inserted material ID.");
                 }
             }
         }
@@ -52,7 +54,12 @@ public class MaterialRepositoryImpl implements MaterialRepository {
 
     @Override
     public void removeMaterial(String id) throws SQLException {
+        String query = "DELETE FROM Materials WHERE id = ?";
 
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, id);
+            ps.executeUpdate();
+        }
     }
 
     @Override
@@ -62,11 +69,58 @@ public class MaterialRepositoryImpl implements MaterialRepository {
 
     @Override
     public Optional<Material> getMaterialById(String id) throws SQLException {
-        return Optional.empty();
+        String query = "SELECT * FROM Materials WHERE id = ?";
+
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, id);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    Material material = new Material(
+                            UUID.fromString(rs.getString("id")),
+                            rs.getString("name"),
+                            UUID.fromString(rs.getString("type")),
+                            rs.getDouble("vatRate"),
+                            rs.getDouble("totalPrice"),
+                            UUID.fromString(rs.getString("projectId")),
+                            rs.getDouble("unitCost"),
+                            rs.getDouble("quantity"),
+                            rs.getDouble("transportCost"),
+                            rs.getDouble("qualityCoefficient")
+                    );
+                    return Optional.of(material);
+                } else {
+                    return Optional.empty();
+                }
+            }
+        }
     }
 
     @Override
-    public ArrayList<Material> getMaterialsByProject(String projectId) throws SQLException {
-        return null;
+    public List<Material> getMaterialsByProject(String projectId) throws SQLException {
+        String query = "SELECT * FROM Materials WHERE projectId = ?";
+
+        try (PreparedStatement ps = connection.prepareStatement(query)) {
+            ps.setString(1, projectId);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                List<Material> materials = new ArrayList<>();
+                while (rs.next()) {
+                    materials.add(new Material(
+                            UUID.fromString(rs.getString("id")),
+                            rs.getString("name"),
+                            UUID.fromString(rs.getString("type")),
+                            rs.getDouble("vatRate"),
+                            rs.getDouble("totalPrice"),
+                            UUID.fromString(rs.getString("projectId")),
+                            rs.getDouble("unitCost"),
+                            rs.getDouble("quantity"),
+                            rs.getDouble("transportCost"),
+                            rs.getDouble("qualityCoefficient")
+                    ));
+                }
+                return materials;
+            }
+        }
     }
 }

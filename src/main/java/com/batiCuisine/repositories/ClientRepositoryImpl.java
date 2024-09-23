@@ -92,11 +92,11 @@ public class ClientRepositoryImpl implements ClientRepository {
 
             try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
-                    UUID clientId = (UUID) generatedKeys.getObject(1);
+                    UUID clientId = UUID.fromString(generatedKeys.getString(1));
 
                     return new Client(clientId, client.getName(), client.getAddress(), client.getPhoneNumber(), client.isProfessional());
                 } else {
-                    return null;
+                    throw new SQLException("Failed to retrieve inserted client ID.");
                 }
             }
         }

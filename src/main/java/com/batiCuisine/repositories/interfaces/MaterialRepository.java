@@ -4,6 +4,7 @@ import main.java.com.batiCuisine.models.Material;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public interface MaterialRepository {
@@ -11,5 +12,5 @@ public interface MaterialRepository {
     public void removeMaterial(String id) throws SQLException;
     public Material updateMaterial(Material material) throws SQLException;
     public Optional<Material> getMaterialById(String id) throws SQLException;
-    public ArrayList<Material> getMaterialsByProject(String projectId) throws SQLException;
+    public List<Material> getMaterialsByProject(String projectId) throws SQLException;
 }

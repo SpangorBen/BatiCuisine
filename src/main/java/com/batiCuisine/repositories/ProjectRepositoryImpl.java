@@ -75,7 +75,7 @@ public class ProjectRepositoryImpl implements ProjectRepository {
 
     public Project addProject(Project project) throws SQLException {
         String query = "INSERT INTO Projects (name, profitMargin, totalCost, surfaceArea, type, status, clientId) VALUES (?, ?, ?, ?, ?, ?)";
-        try (PreparedStatement ps = connection.prepareStatement(query)) {
+        try (PreparedStatement ps = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, project.getName());
             ps.setDouble(2, project.getProfitMargin());
             ps.setDouble(3, project.getTotalCost());
@@ -88,13 +88,15 @@ public class ProjectRepositoryImpl implements ProjectRepository {
             if (affectedRows == 0) {
                 throw new SQLException("Failed to insert project, no rows affected.");
             }
+
             try(ResultSet generatedKeys = ps.getGeneratedKeys()){
                 if(generatedKeys.next()){
-                    UUID id = (UUID) generatedKeys.getObject(1);
+                    UUID id = UUID.fromString(generatedKeys.getString(1));
 
-                    return new Project(id, project.getName(), project.getProfitMargin(), project.getTotalCost(), project.getSurfaceArea(), project.getType(), project.getStatus(), project.getClientId());
+                    return new Project(id, project.getName(), project.getProfitMargin(), project.getTotalCost(),
+                            project.getSurfaceArea(), project.getType(), project.getStatus(), project.getClientId());
                 }else {
-                    return null;
+                    throw new SQLException("Failed to retrieve inserted workforce ID.");
                 }
             }
         }

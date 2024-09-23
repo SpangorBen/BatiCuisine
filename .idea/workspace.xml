@@ -4,20 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0708e97-8cd5-4e2c-8e8d-a9718d2fe6e6" name="Changes" comment="finished structure and finish crud for client and project, and establish dataBase connection">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/MaterialDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/ProjectDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/WorkforceDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Component.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Material.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Workforce.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/WorkforceRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/MaterialRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/WorkforceRepository.java" afterDir="false" />
+    <list default="true" id="b0708e97-8cd5-4e2c-8e8d-a9718d2fe6e6" name="Changes" comment="Add Component, material and workforce model and dtos, finish client service layer with proper logging">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/controllers/ProjectController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/MaterialServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/ProjectServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/WorkforceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/interfaces/MaterialService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/interfaces/ProjectService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/interfaces/WorkforceService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/ProjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/ClientRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/ClientRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/MaterialRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/MaterialRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/ProjectRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/ProjectRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/WorkforceRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/WorkforceRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/MaterialRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/MaterialRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/WorkforceRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/WorkforceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/ClientServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/interfaces/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/interfaces/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/app.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/app.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/batiCuisine.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/batiCuisine.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +80,11 @@
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -96,7 +107,7 @@
       <workItem from="1726735060746" duration="6218000" />
       <workItem from="1726825726750" duration="160000" />
       <workItem from="1726826280473" duration="603000" />
-      <workItem from="1726927129341" duration="14118000" />
+      <workItem from="1726927129341" duration="27263000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <option name="closed" value="true" />
@@ -114,7 +125,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727074175691</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add Component, material and workforce model and dtos, finish client service layer with proper logging">
+      <option name="closed" value="true" />
+      <created>1727075923880</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727075923881</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +142,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first push" />
     <MESSAGE value="finished structure and finish crud for client and project, and establish dataBase connection" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished structure and finish crud for client and project, and establish dataBase connection" />
+    <MESSAGE value="Add Component, material and workforce model and dtos, finish client service layer with proper logging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Component, material and workforce model and dtos, finish client service layer with proper logging" />
   </component>
 </project>

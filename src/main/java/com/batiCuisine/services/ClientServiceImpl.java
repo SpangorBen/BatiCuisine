@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 public class ClientServiceImpl implements ClientService {
 
@@ -23,18 +24,21 @@ public class ClientServiceImpl implements ClientService {
         this.clientRepository = clientRepository;
     }
 
-    public List<Client> getAllClients() throws SQLException {
+    public List<ClientDto> getAllClients() {
         try {
-            return clientRepository.getAllClients();
+            List<Client> clients = clientRepository.getAllClients();
+            return clients.stream().map(c -> Mapper.mapToDto(c, ClientDto.class))
+                    .collect(Collectors.toList());
         } catch (SQLException e) {
             logger.severe("Error fetching all clients");
             throw new RuntimeException("Unable to fetch clients", e);
         }
     }
 
-    public Optional<Client> getClientById(String id) throws SQLException {
+    public Optional<ClientDto> getClientById(String id) {
         try {
-            return clientRepository.getClientById(id);
+            Optional<Client> client = clientRepository.getClientById(id);
+            return  client.map(c -> Mapper.mapToDto(c, ClientDto.class));
         } catch (SQLException e) {
             logger.severe("Error fetching client by id");
             throw new RuntimeException("Unable to fetch client by id", e);
@@ -47,7 +51,7 @@ public class ClientServiceImpl implements ClientService {
             client = clientRepository.addClient(client);
             return Mapper.mapToDto(client, ClientDto.class);
         } catch (SQLException e) {
-            logger.severe("Error adding client");
+            logger.severe("Error adding client" + e.getMessage());
             throw new RuntimeException("Unable to add client", e);
         }
     }
