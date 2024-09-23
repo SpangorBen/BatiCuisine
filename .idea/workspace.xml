@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0708e97-8cd5-4e2c-8e8d-a9718d2fe6e6" name="Changes" comment="first push">
+    <list default="true" id="b0708e97-8cd5-4e2c-8e8d-a9718d2fe6e6" name="Changes" comment="finished structure and finish crud for client and project, and establish dataBase connection">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/MaterialDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/ProjectDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/WorkforceDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Component.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Material.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Workforce.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/WorkforceRepositoryImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/MaterialRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/WorkforceRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/batiCuisine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/batiCuisine.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/ProjectRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/ProjectRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/ClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/interfaces/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/interfaces/ClientService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +96,7 @@
       <workItem from="1726735060746" duration="6218000" />
       <workItem from="1726825726750" duration="160000" />
       <workItem from="1726826280473" duration="603000" />
-      <workItem from="1726927129341" duration="12409000" />
+      <workItem from="1726927129341" duration="14118000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <option name="closed" value="true" />
@@ -96,7 +106,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726735636900</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="finished structure and finish crud for client and project, and establish dataBase connection">
+      <option name="closed" value="true" />
+      <created>1727074175691</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727074175691</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,6 +122,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first push" />
-    <option name="LAST_COMMIT_MESSAGE" value="first push" />
+    <MESSAGE value="finished structure and finish crud for client and project, and establish dataBase connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished structure and finish crud for client and project, and establish dataBase connection" />
   </component>
 </project>
