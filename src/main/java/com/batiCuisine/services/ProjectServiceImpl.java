@@ -30,7 +30,7 @@ public class ProjectServiceImpl implements ProjectService {
             return projects.stream()
                     .map(c -> Mapper.mapToDto(c, ProjectDto.class))
                     .collect(Collectors.toList());
-        } catch (Exception e) {
+        } catch (SQLException e) {
             logger.severe("Error fetching all projects");
             throw new RuntimeException("Unable to fetch projects", e);
         }
@@ -41,7 +41,7 @@ public class ProjectServiceImpl implements ProjectService {
         try {
             Optional<Project> project = projectRepository.getProjectById(id);
             return project.map(c -> Mapper.mapToDto(c, ProjectDto.class));
-        } catch (Exception e) {
+        } catch (SQLException e) {
             logger.severe("Error fetching project by id");
             throw new RuntimeException("Unable to fetch project by id", e);
         }
@@ -53,7 +53,7 @@ public class ProjectServiceImpl implements ProjectService {
             Project project = Mapper.mapToEntity(projectDto, Project.class);
             projectRepository.addProject(project);
             return Mapper.mapToDto(project, ProjectDto.class);
-        } catch (Exception e) {
+        } catch (SQLException e) {
             logger.severe("Error creating project" + e.getMessage());
             throw new RuntimeException("Unable to create project", e);
         }

@@ -46,7 +46,7 @@ public class MaterialServiceImpl implements MaterialService {
         try {
             Optional<Material> material = materialRepository.getMaterialById(id);
             return material.map(m -> Mapper.mapToDto(m, MaterialDto.class));
-        } catch (Exception e) {
+        } catch (SQLException e) {
             logger.severe("Error fetching material by id");
             throw new RuntimeException("Unable to fetch material by id", e);
         }
@@ -58,7 +58,7 @@ public class MaterialServiceImpl implements MaterialService {
             Material material = Mapper.mapToEntity(materialDto, Material.class);
             material = materialRepository.addMaterial(material);
             return Mapper.mapToDto(material, MaterialDto.class);
-        } catch (Exception e) {
+        } catch (SQLException e) {
             logger.severe("Error adding material" + e.getMessage());
             throw new RuntimeException("Unable to add material", e);
         }
@@ -72,7 +72,7 @@ public class MaterialServiceImpl implements MaterialService {
             }
             materialRepository.removeMaterial(id);
             logger.info("Material removed successfully");
-        } catch (Exception e) {
+        } catch (SQLException e) {
             logger.severe("Error removing material ID: " + id + " " + e.getMessage());
             throw new RuntimeException("Unable to remove material with ID" + id, e);
         }
