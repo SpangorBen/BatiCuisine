@@ -19,6 +19,14 @@ public class ClientDto {
         this.isProfessional = isProfessional;
     }
 
+    public ClientDto(UUID id, String name, String address, String phoneNumber, boolean isProfessional) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.isProfessional = isProfessional;
+    }
+
     public UUID getId() {
         return id;
     }

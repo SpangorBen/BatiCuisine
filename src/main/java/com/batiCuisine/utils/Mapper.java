@@ -50,48 +50,4 @@ public class Mapper {
         }
     }
 
-    //Map ResultSet to Entity
-    public static <T> T mapRowToEntity(ResultSet rs, Class<T> clazz) throws SQLException {
-        try {
-            T entity = clazz.getDeclaredConstructor().newInstance(); // Create a new instance of the entity
-
-            for (Field field : clazz.getDeclaredFields()) {
-                field.setAccessible(true);
-                String columnName = field.getName();
-                Object value = getValueFromResultSet(rs, field.getType(), columnName);
-
-                if (value != null) {
-                    field.set(entity, value);
-                }
-            }
-            return entity;
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to map row to entity", e);
-        }
-    }
-
-    private static Object getValueFromResultSet(ResultSet rs, Class<?> fieldType, String columnName) throws SQLException {
-        if (fieldType.isAssignableFrom(String.class)) {
-            return rs.getString(columnName);
-        }
-
-        switch (fieldType.getSimpleName()) {
-            case "int":
-            case "Integer":
-                return rs.getInt(columnName);
-            case "long":
-            case "Long":
-                return rs.getLong(columnName);
-            case "boolean":
-            case "Boolean":
-                return rs.getBoolean(columnName);
-            case "double":
-            case "Double":
-                return rs.getDouble(columnName);
-            case "UUID":
-                return UUID.fromString(rs.getString(columnName));
-            default:
-                return null;  // Handle or log unknown types if necessary
-        }
-    }
 }

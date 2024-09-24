@@ -4,26 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0708e97-8cd5-4e2c-8e8d-a9718d2fe6e6" name="Changes" comment="Add Workforce and material crud and service layer">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/controllers/QuoteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/QuoteDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Quote.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/QuoteRepositoryImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/interfaces/QuoteRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/QuoteServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/interfaces/QuoteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/ui/MainMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/utils/Cost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/MaterialServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/MaterialServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/ProjectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/ProjectServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/WorkforceServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/WorkforceServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/interfaces/WorkforceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/interfaces/WorkforceService.java" afterDir="false" />
+    <list default="true" id="b0708e97-8cd5-4e2c-8e8d-a9718d2fe6e6" name="Changes" comment="Add Quote crud and service layer, and working on the ui menu">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/ComponentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/ui/CostCalculateUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/ui/ProjectUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/utils/InputValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/batiCuisine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/batiCuisine.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/BatiCuisine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/ClientDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/ClientDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/MaterialDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/MaterialDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/ProjectDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/ProjectDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/WorkforceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/dto/WorkforceDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Component.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Material.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/models/Material.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/MaterialRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/repositories/MaterialRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/services/ClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/ui/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/ui/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/batiCuisine/utils/Mapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/batiCuisine/utils/Mapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -58,30 +70,52 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "//wsl.localhost/Ubuntu-22.04/home/hamza/java/batiCuisine/src/Main.java",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.BatiCuisine.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hamza/Downloads/postgresql-42.7.4.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;//wsl.localhost/Ubuntu-22.04/home/hamza/java/batiCuisine/src/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="main.java.com.batiCuisine.utils" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="BatiCuisine" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.com.batiCuisine.BatiCuisine" />
+      <module name="batiCuisine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.com.batiCuisine.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -102,7 +136,12 @@
       <workItem from="1726735060746" duration="6218000" />
       <workItem from="1726825726750" duration="160000" />
       <workItem from="1726826280473" duration="603000" />
-      <workItem from="1726927129341" duration="42168000" />
+      <workItem from="1726927129341" duration="49485000" />
+      <workItem from="1727207443583" duration="222000" />
+      <workItem from="1727207833535" duration="1003000" />
+      <workItem from="1727208890998" duration="1550000" />
+      <workItem from="1727213354112" duration="2229000" />
+      <workItem from="1727215654985" duration="2872000" />
     </task>
     <task id="LOCAL-00001" summary="first push">
       <option name="closed" value="true" />
@@ -136,17 +175,29 @@
       <option name="project" value="LOCAL" />
       <updated>1727120151376</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add Quote crud and service layer, and working on the ui menu">
+      <option name="closed" value="true" />
+      <created>1727191706720</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727191706720</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="app.properties" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first push" />
     <MESSAGE value="finished structure and finish crud for client and project, and establish dataBase connection" />
     <MESSAGE value="Add Component, material and workforce model and dtos, finish client service layer with proper logging" />
     <MESSAGE value="Add Workforce and material crud and service layer" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Workforce and material crud and service layer" />
+    <MESSAGE value="Add Quote crud and service layer, and working on the ui menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Quote crud and service layer, and working on the ui menu" />
   </component>
 </project>

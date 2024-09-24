@@ -17,6 +17,15 @@ public class ProjectDto {
 
     public ProjectDto() {}
 
+    public ProjectDto(String name, double profitMargin, double surfaceArea, String type, UUID clientId) {
+        this.id = id;
+        this.name = name;
+        this.profitMargin = profitMargin;
+        this.surfaceArea = surfaceArea;
+        this.type = ProjectType.valueOf(type);
+        this.clientId = clientId;
+    }
+
     public ProjectDto(UUID id, String name, double profitMargin, double totalCost, double surfaceArea, ProjectType type, ProjectStatus status, UUID clientId) {
         this.id = id;
         this.name = name;

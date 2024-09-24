@@ -25,7 +25,7 @@ public class MaterialRepositoryImpl implements MaterialRepository {
         String query = "INSERT INTO Materials (name, type, vatRate, totalPrice, projectId, unitCost, quantity, transportCost, qualityCoefficient) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try (PreparedStatement ps = connection.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, material.getName());
-            ps.setString(2, material.getType().toString());
+            ps.setString(2, material.getType());
             ps.setDouble(3, material.getVatRate());
             ps.setDouble(4, material.getTotalPrice());
             ps.setString(5, material.getProjectId().toString());
@@ -79,7 +79,7 @@ public class MaterialRepositoryImpl implements MaterialRepository {
                     Material material = new Material(
                             UUID.fromString(rs.getString("id")),
                             rs.getString("name"),
-                            UUID.fromString(rs.getString("type")),
+                            rs.getString("type"),
                             rs.getDouble("vatRate"),
                             rs.getDouble("totalPrice"),
                             UUID.fromString(rs.getString("projectId")),
@@ -109,7 +109,7 @@ public class MaterialRepositoryImpl implements MaterialRepository {
                     materials.add(new Material(
                             UUID.fromString(rs.getString("id")),
                             rs.getString("name"),
-                            UUID.fromString(rs.getString("type")),
+                            rs.getString("type"),
                             rs.getDouble("vatRate"),
                             rs.getDouble("totalPrice"),
                             UUID.fromString(rs.getString("projectId")),

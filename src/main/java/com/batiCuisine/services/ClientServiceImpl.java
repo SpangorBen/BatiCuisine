@@ -7,9 +7,8 @@ import main.java.com.batiCuisine.repositories.interfaces.ClientRepository;
 import main.java.com.batiCuisine.services.interfaces.ClientService;
 import main.java.com.batiCuisine.utils.Mapper;
 
-import java.sql.Connection;
+
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;

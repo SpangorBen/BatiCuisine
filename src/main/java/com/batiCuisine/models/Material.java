@@ -1,5 +1,7 @@
 package main.java.com.batiCuisine.models;
 
+import main.java.com.batiCuisine.models.enums.ProjectType;
+
 import java.util.UUID;
 
 public class Material extends Component{
@@ -10,7 +12,7 @@ public class Material extends Component{
 
     public Material(){}
 
-    public Material(UUID id, String name, UUID type, double vatRate, double totalPrice, UUID projectId, double unitCost, double quantity, double transportCost, double qualityCoefficient) {
+    public Material(UUID id, String name, String type, double vatRate, double totalPrice, UUID projectId, double unitCost, double quantity, double transportCost, double qualityCoefficient) {
         super(id, name, type, vatRate, totalPrice, projectId);
         this.unitCost = unitCost;
         this.quantity = quantity;

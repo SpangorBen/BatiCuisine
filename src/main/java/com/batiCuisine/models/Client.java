@@ -11,6 +11,13 @@ public class Client {
 
     public Client(){}
 
+    public Client(String name, String address, String phoneNumber, boolean isProfessional) {
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.isProfessional = isProfessional;
+    }
+
     public Client(UUID id, String name, String address, String phoneNumber, boolean isProfessional) {
         this.id = id;
         this.name = name;
